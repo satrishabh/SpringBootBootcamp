@@ -1,0 +1,46 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /msf
+
+spring:
+  application:
+    name: msf
+  security:
+    user:
+      name: admin
+      roles: ADMIN
+      password: admin
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/msf
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: vendor_dashboard
+        format_sql: true
+
+#  data:
+#    mongodb:
+#      uri: mongodb+srv://imishrarishabh_db_user:7xXOtKxe8xeUKAyM@msf.oe0ljfg.mongodb.net/vendor_management_mongo?retryWrites=true&w=majority&appName=msf
+#
+#  servlet:
+#    multipart:
+#      max-file-size: 10MB
+#      max-request-size: 10MB
+#
+#jwt:
+#  secret: msfSecretKeyForJWTTokenGeneration2025
+#  expiration: 86400000 # 24 hours
+
+logging:
+  level:
+    com.msf: DEBUG
+    org.springframework.security: DEBUG
